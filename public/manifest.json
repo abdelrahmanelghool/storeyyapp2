@@ -14,13 +14,13 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "/icon_192x192.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/icon_512x512.png",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
@@ -35,7 +35,7 @@
       "url": "/?action=purchase",
       "icons": [
         {
-          "src": "/icon_192x192.png",
+          "src": "/icon-192x192.png",
           "sizes": "192x192"
         }
       ]
@@ -47,7 +47,7 @@
       "url": "/?action=sale",
       "icons": [
         {
-          "src": "/icon_192x192.png",
+          "src": "/icon-192x192.png",
           "sizes": "192x192"
         }
       ]
@@ -59,7 +59,7 @@
       "url": "/?page=inventory",
       "icons": [
         {
-          "src": "/icon_192x192.png",
+          "src": "/icon-192x192.png",
           "sizes": "192x192"
         }
       ]
