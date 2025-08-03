@@ -123,13 +123,9 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  /* تم حذف القاعدة الفارغة */
 
-  body {
-    @apply bg-background text-foreground;
-  }
+  /* تم حذف القاعدة الفارغة */
 }
 
 /**
