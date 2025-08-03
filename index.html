@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Storeyy" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="تطبيق إدارة مخازن الصيدليات والمستودعات مع تحديثات مباشرة" />
+    <meta name="keywords" content="صيدلية, مخزن, إدارة, فواتير, أدوية, تطبيق موبايل" />
+    <meta name="author" content="Storeyy Team" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Storeyy - نظام إدارة المخازن" />
+    <meta property="og:description" content="تطبيق متقدم لإدارة مخازن الصيدليات مع فواتير الشراء والبيع" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_EG" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect for better performance -->
+    <link rel="preconnect" href="https://bomgvxeykbasqcuwkcaw.supabase.co" />
+    
+    <title>Storeyy - نظام إدارة المخازن</title>
+    
+    <style>
+      /* Loading screen */
+      #root:empty::after {
+        content: "📦 جاري تحميل Storeyy...";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: system-ui, -apple-system, sans-serif;
+        color: #3b82f6;
+        background: linear-gradient(135deg, #f9fafb 0%, #e5f3ff 100%);
+        font-size: 18px;
+        font-weight: 500;
+      }
+      
+      /* Performance optimizations */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      
+      /* Disable zoom on iOS */
+      @media screen and (max-width: 480px) {
+        meta[name="viewport"] {
+          content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      // Register service worker for PWA functionality
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('✅ Service Worker registered successfully');
+            })
+            .catch((registrationError) => {
+              console.warn('⚠️ Service Worker registration failed:', registrationError);
+            });
+        });
+      }
+      
+      // Handle app updates
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+      });
+      
+      // Error handling
+      window.addEventListener('error', (e) => {
+        console.error('❌ Global error:', e.error);
+      });
+      
+      window.addEventListener('unhandledrejection', (e) => {
+        console.error('❌ Unhandled promise rejection:', e.reason);
+      });
+    </script>
+  </body>
+</html>
